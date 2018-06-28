@@ -456,19 +456,23 @@ Equivalent to [*line*.context](#line_context).
 
 [<img alt="Area Chart" width="295" height="154" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area.png">](http://bl.ocks.org/mbostock/3883195)[<img alt="Stacked Area Chart" width="295" height="154" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area-stacked.png">](http://bl.ocks.org/mbostock/3885211)[<img alt="Difference Chart" width="295" height="154" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area-difference.png">](http://bl.ocks.org/mbostock/3894205)
 
-The area generator produces an area, as in an area chart. An area is defined by two bounding [lines](#lines), either splines or polylines. Typically, the two lines share the same [*x*-values](#area_x) ([x0](#area_x0) = [x1](#area_x1)), differing only in *y*-value ([y0](#area_y0) and [y1](#area_y1)); most commonly, y0 is defined as a constant representing [zero](http://www.vox.com/2015/11/19/9758062/y-axis-zero-chart). The first line (the <i>topline</i>) is defined by x1 and y1 and is rendered first; the second line (the <i>baseline</i>) is defined by x0 and y0 and is rendered second, with the points in reverse order. With a [curveLinear](#curveLinear) [curve](#area_curve), this produces a clockwise polygon.
+- Hàm `area` giúp tạo ra một "area" khi cần vẽ đồ thị dạng "area". 
+- Môt area được định nghĩa thông qua 2 đường giới hạn (xem thêm mục [lines](#lines)), hoặc là splines hoặc là polylines. 
+- Thông thường, hai đường này sẽ có chung [*x*-values](#area_x) ([x0](#area_x0) = [x1](#area_x1)), chỉ khác nhau ở giá trị *y*-value ([y0](#area_y0) và [y1](#area_y1)); và ta hay gặp nhất là trường hợp y0 chính là đường y nằm ngang tại gốc tạo độ (xem thêm [zero](http://www.vox.com/2015/11/19/9758062/y-axis-zero-chart)). 
+- Đường thứ nhất nằm trên cùng (<i>topline</i>) được định nghĩa qua x1 và y1, được vẽ đầu tiên; đường thứ hi nằm bên dưới (the <i>baseline</i>) ứng với x0 và y0, được vẽ sau, các điểm được vẽ theo thứ tự đảo ngược. 
+- Với một [curveLinear](#curveLinear) [curve](#area_curve), hàm `area` sẽ tạo ra một polygon theo chiều kim đồng hò.
 
 <a name="area" href="#area">#</a> d3.<b>area</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/area.js "Source")
 
-Constructs a new area generator with the default settings.
+Tạo ra một `area generator` mới với các thiết lập mặc định.
 
 <a name="_area" href="#_area">#</a> <i>area</i>(<i>data</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L17 "Source")
 
-Generates an area for the given array of *data*. Depending on this area generator’s associated [curve](#area_curve), the given input *data* may need to be sorted by *x*-value before being passed to the area generator. If the area generator has a [context](#line_context), then the area is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls and this function returns void. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string is returned.
+Tạo ra một "area" dựa trên *data* được cung cấp. Depending on this area generator’s associated [curve](#area_curve), the given input *data* may need to be sorted by *x*-value before being passed to the area generator. If the area generator has a [context](#line_context), then the area is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls and this function returns void. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string is returned.
 
 <a name="area_x" href="#area_x">#</a> <i>area</i>.<b>x</b>([<i>x</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L59 "Source")
 
-If *x* is specified, sets [x0](#area_x0) to *x* and [x1](#area_x1) to null and returns this area generator. If *x* is not specified, returns the current x0 accessor.
+Nếu *x* được xác định, đặt [x0](#area_x0) thành *x* and [x1](#area_x1) to null and returns this area generator. If *x* is not specified, returns the current x0 accessor.
 
 <a name="area_x0" href="#area_x0">#</a> <i>area</i>.<b>x0</b>([<i>x</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L63 "Source")
 
